@@ -1,6 +1,6 @@
 #include "monty.h"
 
-stack_t *top_node;
+stack_t *top_node = NULL;
 
 /**
  * get_command - get command and check
@@ -27,6 +27,7 @@ void get_command(char *portion, unsigned int line)
 		command = strtok(portion, " ");
 		if (strcmp(command, operations[i].opcode) == 0)
 		{
+
 			operations[i].f(&top_node, line);
 			return;
 		}
@@ -35,7 +36,7 @@ void get_command(char *portion, unsigned int line)
 
 	if (strlen(portion) > 0)
 	{
-		fprintf(stderr, "L%u: unknown instruction %s", line, portion);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line, portion);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -59,7 +60,7 @@ int main(int argc, char **argv)
 	unsigned int line = 0;
 	char *portion;
 
-	if (argc < 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -79,7 +80,8 @@ int main(int argc, char **argv)
 		get_command(portion, line);
 	}
 
-	free_all(bufferData);
+	atexit(free_all);
+	free(bufferData);
 	fclose(filePtr);
 	exit(EXIT_SUCCESS);
 }

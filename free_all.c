@@ -3,16 +3,16 @@
 /**
  * free_all - free memory
  *
- * @top: topmost of stack
- *
  * Return: nothing
  */
 
 
-void free_all(char *buffer)
+void free_all(void)
 {
 	stack_t *temp;
 
+	if (!top_node)
+		return;
 	temp = top_node->next;
 	while (top_node != NULL)
 	{
@@ -21,6 +21,5 @@ void free_all(char *buffer)
 		if (temp != NULL)
 			temp = temp->next;
 	}
-	free(buffer);
 }
 

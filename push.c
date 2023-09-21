@@ -39,6 +39,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (num == NULL || !isInteger(num))
 	{
+		atexit(free_all);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
