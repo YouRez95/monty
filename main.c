@@ -27,7 +27,6 @@ void get_command(char *portion, unsigned int line)
 		command = strtok(portion, " ");
 		if (strcmp(command, operations[i].opcode) == 0)
 		{
-
 			operations[i].f(&top_node, line);
 			return;
 		}
@@ -36,6 +35,7 @@ void get_command(char *portion, unsigned int line)
 
 	if (strlen(portion) > 0)
 	{
+		free_all();
 		fprintf(stderr, "L%u: unknown instruction %s\n", line, portion);
 		exit(EXIT_FAILURE);
 	}
