@@ -1,5 +1,4 @@
-push 34
-push 15
-push 19
-push ert
+push 1
+push 2
+push 3
 pall

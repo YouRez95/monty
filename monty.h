@@ -48,7 +48,7 @@ extern stack_t *top_node;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void free_all(stack_t *);
+void free_all(char *);
 
 
 #endif

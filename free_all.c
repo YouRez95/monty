@@ -9,17 +9,18 @@
  */
 
 
-void free_all(stack_t *top)
+void free_all(char *buffer)
 {
 	stack_t *temp;
 
-	temp = top->next;
-	while (top != NULL)
+	temp = top_node->next;
+	while (top_node != NULL)
 	{
-		free(top);
-		top = temp;
+		free(top_node);
+		top_node = temp;
 		if (temp != NULL)
 			temp = temp->next;
 	}
+	free(buffer);
 }
 

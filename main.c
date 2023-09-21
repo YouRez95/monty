@@ -79,8 +79,7 @@ int main(int argc, char **argv)
 		get_command(portion, line);
 	}
 
-	free_all(top_node);
-	free(bufferData);
+	free_all(bufferData);
 	fclose(filePtr);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
