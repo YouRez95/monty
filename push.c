@@ -40,7 +40,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (num == NULL || !isInteger(num))
 	{
 		free_all(top_node);
-		fprintf(stderr, "%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	newNode = malloc(sizeof(stack_t));

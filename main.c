@@ -28,8 +28,15 @@ void get_command(char *portion, unsigned int line)
 		if (strcmp(command, operations[i].opcode) == 0)
 		{
 			operations[i].f(&top_node, line);
+			return;
 		}
 
+	}
+
+	if (strlen(portion) > 0)
+	{
+		fprintf(stderr, "L%u: unknown instruction %s", line, portion);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -69,7 +76,6 @@ int main(int argc, char **argv)
 	{
 		line += 1;
 		portion = strtok(bufferData, "\n");
-		/*printf("line %d: %s\n", line, portion);*/
 		get_command(portion, line);
 	}
 
