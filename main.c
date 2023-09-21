@@ -23,6 +23,7 @@ void get_command(char *portion, unsigned int line)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 	};
 
 	for (i = 0; i < sizeof(operations) / sizeof(operations[0]); i++)
