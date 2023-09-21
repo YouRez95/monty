@@ -20,6 +20,7 @@ void get_command(char *portion, unsigned int line)
 	instruction_t operations[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 	};
 
 	for (i = 0; i < sizeof(operations) / sizeof(operations[0]); i++)
