@@ -33,6 +33,8 @@ void get_command(char *portion, unsigned int line)
 
 	for (i = 0; i < sizeof(operations) / sizeof(operations[0]); i++)
 	{
+		if ('#' == portion[0])
+			return;
 		command = strtok(portion, " ");
 		if (strcmp(command, operations[i].opcode) == 0)
 		{
