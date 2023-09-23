@@ -27,7 +27,8 @@ void get_command(char *portion, unsigned int line)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", my_div},
-		{"mul", mul}
+		{"mul", mul},
+		{"mod", mod}
 	};
 
 	for (i = 0; i < sizeof(operations) / sizeof(operations[0]); i++)
