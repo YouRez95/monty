@@ -25,6 +25,7 @@ void get_command(char *portion, unsigned int line)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 	};
 
 	for (i = 0; i < sizeof(operations) / sizeof(operations[0]); i++)
